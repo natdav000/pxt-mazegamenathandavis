@@ -1,3 +1,22 @@
+let _orange = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . 7 7 . . . . . . . 
+. . . . . . . 7 . . . . . . . . 
+. . . . . . 4 4 . . . . . . . . 
+. . . . . 4 4 4 4 . . . . . . . 
+. . . . 4 4 4 4 4 4 . . . . . . 
+. . . . 4 4 4 4 4 4 . . . . . . 
+. . . . . 4 4 4 4 . . . . . . . 
+. . . . . . 4 4 . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Food)
+_orange.setPosition(80, 60)
 scene.setTileMap(img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 2 
@@ -107,5 +126,6 @@ let mySprite = sprites.create(img`
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
 for (let index = 0; index < 40; index++) {
-    mySprite.setKind(SpriteKind.Food)
+    _orange.setPosition(66, 117)
+    _orange.z = 1
 }
