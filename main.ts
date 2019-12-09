@@ -1,22 +1,11 @@
-let _orange = sprites.create(img`
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . 7 7 . . . . . . . 
-. . . . . . . 7 . . . . . . . . 
-. . . . . . 4 4 . . . . . . . . 
-. . . . . 4 4 4 4 . . . . . . . 
-. . . . 4 4 4 4 4 4 . . . . . . 
-. . . . 4 4 4 4 4 4 . . . . . . 
-. . . . . 4 4 4 4 . . . . . . . 
-. . . . . . 4 4 . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-. . . . . . . . . . . . . . . . 
-`, SpriteKind.Food)
-_orange.setPosition(80, 60)
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+    for (let index = 0; index < 4; index++) {
+        _orange.setPosition(Math.randomRange(32, 300), Math.randomRange(100, 300))
+    }
+    info.startCountdown(10)
+})
+let _orange: Sprite = null
 scene.setTileMap(img`
 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 
 2 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 2 
@@ -126,6 +115,25 @@ let mySprite = sprites.create(img`
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
 for (let index = 0; index < 40; index++) {
-    _orange.setPosition(66, 117)
+    _orange = sprites.create(img`
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . 7 7 . . . . . . 
+. . . . . . . . 7 . . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . 4 4 4 4 4 4 . . . . . 
+. . . . . 4 4 4 4 4 4 . . . . . 
+. . . . . . 4 4 4 4 . . . . . . 
+. . . . . . . 4 4 . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+. . . . . . . . . . . . . . . . 
+`, SpriteKind.Food)
+    _orange.setPosition(Math.randomRange(32, 300), Math.randomRange(100, 300))
     _orange.z = 1
 }
+info.startCountdown(10)
